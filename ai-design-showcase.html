@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AI Web Design Showcase — 40 Modern Minimalist Sites</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="A curated gallery of 40 modern AI company websites with design-system taxonomy, homepage previews, and clean minimalist aesthetics."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --surface: #ffffff;
+      --ink: #141210;
+      --muted: #6b6560;
+      --line: #e4e0da;
+      --accent: #d94e1f;
+      --radius: 14px;
+      --shadow: 0 1px 2px rgba(20, 18, 16, 0.04), 0 8px 24px rgba(20, 18, 16, 0.06);
+      --max: 1320px;
+      --sans: Inter, system-ui, sans-serif;
+      --serif: Newsreader, Georgia, serif;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .logo {
+      font-family: var(--serif);
+      font-size: 18px;
+      letter-spacing: -0.03em;
+      text-decoration: none;
+    }
+    .logo span { color: var(--muted); font-style: italic; }
+    .header-meta { margin-left: auto; font-size: 13px; color: var(--muted); }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 56px 24px 24px;
+    }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 14px;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(36px, 5vw, 58px);
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin: 0 0 18px;
+      max-width: 16ch;
+    }
+    .hero-lead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 44em;
+      margin: 0 0 20px;
+    }
+    .hero-lead strong { color: var(--ink); font-weight: 500; }
+    .hero-hint { font-size: 14px; color: var(--muted); margin: 0 0 28px; }
+    .hero-hint strong { color: var(--ink); }
+
+    /* Design system taxonomy */
+    .taxonomy {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 32px;
+    }
+    .taxonomy h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 24px;
+      letter-spacing: -0.03em;
+      margin: 0 0 16px;
+    }
+    .taxonomy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .taxonomy-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px 18px;
+    }
+    .taxonomy-card h3 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0 0 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .taxonomy-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .taxonomy-card p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0 0 10px;
+      line-height: 1.45;
+    }
+    .taxonomy-signals {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .taxonomy-signals span {
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 5px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+
+    /* Filters */
+    .controls {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 24px;
+    }
+    .filter-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin: 0 0 8px;
+    }
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 6px; }
+    .filter-btn {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .filter-btn:hover {
+      border-color: color-mix(in srgb, var(--ink) 20%, var(--line));
+      color: var(--ink);
+    }
+    .filter-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+    .filter-btn.ds-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+    .search-wrap { margin-left: auto; position: relative; }
+    .search-wrap input {
+      width: min(260px, 100%);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      border-radius: 999px;
+      padding: 8px 14px 8px 36px;
+      font-family: var(--sans);
+      font-size: 13px;
+      outline: none;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+    .result-count { font-size: 13px; color: var(--muted); margin: 0; }
+
+    /* Gallery */
+    .gallery {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover, .card:focus-visible {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+      border-color: color-mix(in srgb, var(--ink) 12%, var(--line));
+      outline: none;
+    }
+    .card.hidden { display: none; }
+
+    .card-screenshot {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #e8e4de;
+    }
+    .card-screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .card:hover .card-screenshot img { transform: scale(1.02); }
+
+    .screenshot-chrome {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 28px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), transparent);
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 5px;
+      pointer-events: none;
+    }
+    .screenshot-chrome i {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+    }
+
+    .ds-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.92);
+      color: var(--ink);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0,0,0,0.06);
+      pointer-events: none;
+    }
+
+    .card-body {
+      padding: 16px 18px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .card-name {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .card-index {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .palette { display: flex; gap: 6px; }
+    .swatch {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+    .card-details {
+      font-size: 12px;
+      color: var(--muted);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 16px;
+    }
+    .card-details dt {
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: color-mix(in srgb, var(--muted) 70%, var(--ink));
+      margin-bottom: 2px;
+    }
+    .card-details dd { margin: 0; font-size: 12px; }
+    .meta-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 3px 8px;
+      border-radius: 5px;
+      background: var(--bg);
+      color: var(--muted);
+      border: 1px solid var(--line);
+    }
+    .visit-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent);
+      margin-top: auto;
+      pointer-events: none;
+    }
+    .card:hover .visit-link { text-decoration: underline; text-underline-offset: 3px; }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .site-footer p { margin: 0 0 8px; }
+
+    @media (max-width: 640px) {
+      .search-wrap { margin-left: 0; width: 100%; }
+      .search-wrap input { width: 100%; }
+      .header-meta { display: none; }
+      .card-details { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#">AI Design <span>Showcase</span></a>
+      <span class="header-meta" id="header-count">40 sites · 6 design systems</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Web design reference</p>
+    <h1>Modern AI, quietly designed</h1>
+    <p class="hero-lead">
+      A hand-picked gallery of <strong>40 AI company websites</strong> categorized by design system —
+      from the editorial warmth of <strong>Applied Compute</strong> to the institutional rigor of <strong>Hebbia</strong>.
+      Each card shows a live homepage preview plus structured design metadata.
+    </p>
+    <p class="hero-hint"><strong>Tap any card</strong> to open that company's live site.</p>
+  </section>
+
+  <section class="taxonomy" id="taxonomy" aria-label="Design system taxonomy"></section>
+
+  <div class="controls">
+    <p class="filter-label">Design system</p>
+    <div class="filter-row">
+      <div class="filter-group" id="ds-filters">
+        <button class="filter-btn ds-active" data-ds="all">All systems</button>
+      </div>
+    </div>
+    <p class="filter-label">Audience &amp; theme</p>
+    <div class="filter-row">
+      <div class="filter-group" id="tag-filters">
+        <button class="filter-btn active" data-tag="all">All</button>
+        <button class="filter-btn" data-tag="enterprise">Enterprise</button>
+        <button class="filter-btn" data-tag="developer">Developer</button>
+        <button class="filter-btn" data-tag="consumer">Consumer</button>
+        <button class="filter-btn" data-tag="research">Research</button>
+        <button class="filter-btn" data-tag="light">Light</button>
+        <button class="filter-btn" data-tag="dark">Dark</button>
+      </div>
+      <div class="search-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/>
+        </svg>
+        <input type="search" id="search" placeholder="Search companies…" aria-label="Search companies"/>
+      </div>
+    </div>
+    <p class="result-count" id="count" aria-live="polite">Loading…</p>
+  </div>
+
+  <main class="gallery" id="gallery" aria-label="AI company website gallery"></main>
+
+  <footer class="site-footer">
+    <p>Curated for design inspiration — not affiliated with any listed company.</p>
+    <p>Run locally: <code>python3 -m http.server 8765 --directory notes/ui-mockups</code></p>
+  </footer>
+
+  <script>
+    const DS_COLORS = {
+      "editorial-warm": "#d94e1f",
+      "monochrome-restraint": "#141210",
+      "enterprise-light": "#6366f1",
+      "dark-technical": "#22c55e",
+      "dark-premium": "#8b5cf6",
+      "utility-minimal": "#20808d"
+    };
+
+    const TYPOGRAPHY_LABELS = {
+      "serif-editorial": "Serif editorial",
+      "neo-grotesk": "Neo-grotesk",
+      "grotesk-sans": "Grotesk sans",
+      "mono-forward": "Mono-forward",
+      "mixed": "Mixed serif/sans"
+    };
+
+    const LAYOUT_LABELS = {
+      "sparse-hero": "Sparse hero",
+      "product-demo": "Product demo",
+      "grid-modular": "Modular grid",
+      "narrative-scroll": "Narrative scroll"
+    };
+
+    const IMAGERY_LABELS = {
+      "product-ui": "Product UI",
+      "photography": "Photography",
+      "abstract-gradient": "Abstract / gradient",
+      "typography-only": "Typography only"
+    };
+
+    let designSystems = {};
+    let sites = [];
+    let activeDs = "all";
+    let activeTag = "all";
+
+    async function init() {
+      const res = await fetch("ai-showcase-sites.json");
+      const data = await res.json();
+      designSystems = data.designSystems;
+      sites = data.sites.map((s, i) => ({ ...s, index: String(i + 1).padStart(2, "0") }));
+
+      renderTaxonomy();
+      renderDsFilters();
+      renderGallery();
+      updateVisibility();
+    }
+
+    function renderTaxonomy() {
+      const el = document.getElementById("taxonomy");
+      el.innerHTML = `
+        <h2>Design system taxonomy</h2>
+        <div class="taxonomy-grid">
+          ${Object.entries(designSystems).map(([id, ds]) => `
+            <div class="taxonomy-card">
+              <h3>
+                <span class="taxonomy-dot" style="background:${DS_COLORS[id]}"></span>
+                ${ds.label}
+              </h3>
+              <p>${ds.description}</p>
+              <div class="taxonomy-signals">
+                ${ds.signals.map(s => `<span>${s}</span>`).join("")}
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderDsFilters() {
+      const el = document.getElementById("ds-filters");
+      el.innerHTML = `<button class="filter-btn ds-active" data-ds="all">All systems</button>` +
+        Object.entries(designSystems).map(([id, ds]) =>
+          `<button class="filter-btn" data-ds="${id}">${ds.label}</button>`
+        ).join("");
+
+      el.addEventListener("click", e => {
+        const btn = e.target.closest("[data-ds]");
+        if (!btn) return;
+        el.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("ds-active"));
+        btn.classList.add("ds-active");
+        activeDs = btn.dataset.ds;
+        updateVisibility();
+      });
+    }
+
+    function renderCard(site) {
+      const ds = designSystems[site.designSystem];
+      const host = site.url.replace("https://", "");
+      const swatches = site.palette.map(c => `<span class="swatch" style="background:${c}" title="${c}"></span>`).join("");
+      const tags = site.tags.map(t => `<span class="tag">${t}</span>`).join("");
+
+      return `
+        <a class="card"
+           href="${site.url}"
+           rel="noopener noreferrer"
+           data-ds="${site.designSystem}"
+           data-tags="${site.tags.join(" ")}"
+           data-name="${site.name.toLowerCase()}"
+           data-desc="${site.desc.toLowerCase()}"
+           aria-label="Visit ${site.name} at ${host}">
+          <div class="card-screenshot">
+            <div class="screenshot-chrome"><i></i><i></i><i></i></div>
+            <img src="ai-showcase-screenshots/${site.slug}.jpg" alt="${site.name} homepage preview" loading="lazy" width="640" height="400"/>
+            <span class="ds-badge" style="border-left:3px solid ${DS_COLORS[site.designSystem]}">${ds.label}</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top">
+              <h3 class="card-name">${site.name}</h3>
+              <span class="card-index">${site.index}</span>
+            </div>
+            <p class="card-desc">${site.desc}</p>
+            <div class="palette" aria-label="Color palette">${swatches}</div>
+            <dl class="card-details">
+              <div><dt>Typography</dt><dd>${site.type}</dd></div>
+              <div><dt>Type style</dt><dd>${TYPOGRAPHY_LABELS[site.typography] || site.typography}</dd></div>
+              <div><dt>Layout</dt><dd>${LAYOUT_LABELS[site.layout] || site.layout}</dd></div>
+              <div><dt>Imagery</dt><dd>${IMAGERY_LABELS[site.imagery] || site.imagery}</dd></div>
+            </dl>
+            <div class="meta-row">${tags}</div>
+            <span class="visit-link">
+              Visit ${host} →
+            </span>
+          </div>
+        </a>
+      `;
+    }
+
+    function renderGallery() {
+      document.getElementById("gallery").innerHTML = sites.map(renderCard).join("");
+    }
+
+    function updateVisibility() {
+      const q = document.getElementById("search").value.trim().toLowerCase();
+      let visible = 0;
+      document.querySelectorAll(".card").forEach(card => {
+        const matchDs = activeDs === "all" || card.dataset.ds === activeDs;
+        const matchTag = activeTag === "all" || card.dataset.tags.includes(activeTag);
+        const matchSearch = !q || card.dataset.name.includes(q) || card.dataset.desc.includes(q);
+        const show = matchDs && matchTag && matchSearch;
+        card.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+      document.getElementById("count").textContent = `Showing ${visible} of ${sites.length} sites`;
+    }
+
+    document.getElementById("tag-filters").addEventListener("click", e => {
+      const btn = e.target.closest("[data-tag]");
+      if (!btn) return;
+      document.querySelectorAll("#tag-filters .filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeTag = btn.dataset.tag;
+      updateVisibility();
+    });
+
+    document.getElementById("search").addEventListener("input", updateVisibility);
+    init();
+  </script>
+</body>
+</html>
